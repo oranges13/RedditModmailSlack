@@ -18,18 +18,11 @@ class FetchController extends Controller
 	/**
 	 * Set up Guzzle Client for requests
 	 *
-	 * @return void
+	 * @param Client $client
 	 */
-	public function __construct()
+	public function __construct(Client $client)
 	{
-		$this->client = new Client(
-			[
-				'headers' => [
-					'User-Agent' => env('REDDIT_USER_AGENT'),
-					'Content-Type' => 'application/x-www-form-urlencoded',
-				]
-			]
-		);
+		$this->client = $client;
 		$this->access_token = '';
 		$this->results = [];
 	}
@@ -174,7 +167,7 @@ class FetchController extends Controller
 				'elements' => [
 					[
 						'type' => 'mrkdwn',
-						'text' => '<https://mod.reddit.com/mail/|View Modmail>',
+						'text' => '<https://mod.reddit.com/mail/all|Open Modmail> to view all messages',
 					]
 				]
 			];
