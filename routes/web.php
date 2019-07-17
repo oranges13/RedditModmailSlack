@@ -11,8 +11,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
-$router->get('/conversations', 'FetchController@getConversations');
+$router->get('/', function (Request $request) {
+	Artisan::call('fetch:modmail', ['state' => $request['state']]);
+	return Artisan::output();
+});

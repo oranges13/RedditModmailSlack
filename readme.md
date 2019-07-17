@@ -1,21 +1,50 @@
-# Lumen PHP Framework
+# Reddit Modmail Slack Notifier
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+A microservice which fetches a list of unread modmail messages from Reddit based on criteria you specify and then posts it using an incoming webhook to your slack channel!
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## System Requirements
 
-## Official Documentation
+This application is built on the [Lumen Framework](https://lumen.laravel.com/docs/5.8) and has the same installation requirements:
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+* PHP >= 7.1.3
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
 
-## Security Vulnerabilities
+## Installation
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Download the most recent release and expand the archive into your webserver root directory, or clone the `release` branch.
 
-## License
+In the application base directory, run `composer install`.
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copy `.env.example` to `.env` and fill out the required configuration variables.
+
+## Usage
+
+### Quickstart
+
+Send a `GET` request to the root of the application to run the service manually.
+
+### Automatic Scheduling
+
+This application includes an artisan command that will run on the schedule you desire.
+
+If you wish to enable this functionality, you only need to uncomment the schedule line in
+`app/Console/Commands/Kernel.php`
+
+**Be sure to add the following cron entry to your server in order to run the scheduler once configured:**
+
+```
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+If enabled, by default this task will run every 10 minutes. You can view the [available schedule frequencies](https://laravel.com/docs/5.8/scheduling#schedule-frequency-options)
+in the official Laravel documentation
+
+You can add constraints for the schedule or optionally add notifications on failure. All of these options are
+documented in the [task Scheduling overview](https://laravel.com/docs/5.8/scheduling) in the official Laravel
+Documentation
+
+## Contributing
+
+Bugfixes and improvements are welcome. Please submit issues using the template provided! 
