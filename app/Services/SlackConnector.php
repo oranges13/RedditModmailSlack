@@ -7,6 +7,7 @@ namespace App\Services;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Collection;
 
@@ -45,7 +46,7 @@ class SlackConnector
 					'body' => $payload->toJson(),
 				]);
 
-			} catch (ClientException | RequestException $e) {
+			} catch (ConnectException | ClientException | RequestException $e) {
 				throw new Exception("Unable to send notification to slack! " . $e->getResponse()->getBody(), null, $e);
 			}
 		}

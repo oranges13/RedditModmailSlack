@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -83,7 +84,7 @@ class RedditConnector
 					}
 				}
 			}
-		} catch (ClientException | RequestException $e) {
+		} catch (ConnectException | ClientException | RequestException $e) {
 			throw new Exception("Unable to fetch modmail from reddit." . $e->getResponse()->getBody(), 0, $e);
 		}
 
