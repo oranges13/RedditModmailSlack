@@ -2,6 +2,8 @@
 
 A microservice which fetches a list of unread modmail messages from Reddit based on criteria you specify and then posts it using an incoming webhook to your slack channel!
 
+[![Build Status](https://travis-ci.com/oranges13/RedditModmailSlack.svg?branch=master)](https://travis-ci.com/oranges13/RedditModmailSlack)
+
 ## System Requirements
 
 This application is built on the [Lumen Framework](https://lumen.laravel.com/docs/5.8) and has the same installation requirements:
