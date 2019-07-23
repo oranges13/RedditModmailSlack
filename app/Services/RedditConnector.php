@@ -21,16 +21,12 @@ class RedditConnector
 
 	/**
 	 * RedditConnector constructor.
+	 * @param Client $client
 	 */
-	public function __construct()
+	public function __construct(Client $client)
 	{
 
-		$this->client = new Client([
-			'headers' => [
-				'User-Agent' => env('USER_AGENT_STRING'),
-				'Content-Type' => 'application/x-www-form-urlencoded',
-			]
-		]);
+		$this->client = $client;
 		$this->access_token = Cache::remember('reddit.auth.token', 3600, function () {
 			return $this->refreshToken();
 		});
@@ -44,7 +40,7 @@ class RedditConnector
 	 * @return Collection
 	 * @throws Exception
 	 */
-	public function fetch($state)
+	public function fetch($state = 'new')
 	{
 
 		try {

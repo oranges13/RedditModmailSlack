@@ -1,0 +1,74 @@
+{
+  "conversations": {
+    "ncvqZ": {
+      "isAuto": false,
+      "objIds": [
+        {
+          "id": "rdFeG",
+          "key": "messages"
+        }
+      ],
+      "isRepliable": true,
+      "lastUserUpdate": "2019-07-17T18:29:42.899242+00:00",
+      "isInternal": false,
+      "lastModUpdate": null,
+      "lastUpdated": "2019-07-17T18:29:42.899242+00:00",
+      "authors": [
+        {
+          "isMod": false,
+          "isAdmin": false,
+          "name": "DSRvza5t",
+          "isOp": true,
+          "isParticipant": true,
+          "isHidden": false,
+          "id": 1234567890,
+          "isDeleted": false
+        }
+      ],
+      "owner": {
+        "displayName": "test_sub_not_real",
+        "type": "subreddit",
+        "id": "t5_12345"
+      },
+      "id": "ncvqZ",
+      "isHighlighted": false,
+      "subject": "new account, not a bot!",
+      "participant": {
+        "isMod": false,
+        "isAdmin": false,
+        "name": "DSRvza5t",
+        "isOp": true,
+        "isParticipant": true,
+        "isHidden": false,
+        "id": 1234567890,
+        "isDeleted": false
+      },
+      "state": 0,
+      "lastUnread": null,
+      "numMessages": 1
+    }
+  },
+  "messages": {
+    "rdFeG": {
+      "body": "<!-- SC_OFF --><div class=\"md\"><p>Hello Mods, \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum, orci a elementum convallis, sem quam ornare justo, eu dictum.\nThank you!</p>\n</div><!-- SC_ON -->",
+      "author": {
+        "isMod": false,
+        "isAdmin": false,
+        "name": "DSRvza5t",
+        "isOp": true,
+        "isParticipant": true,
+        "isHidden": false,
+        "id": 1234567890,
+        "isDeleted": false
+      },
+      "isInternal": false,
+      "date": "2019-07-17T18:29:42.899242+00:00",
+      "bodyMarkdown": "Hello Mods, \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum, orci a elementum convallis, sem quam ornare justo, eu dictum.\nThank you!",
+      "id": "rdFeG"
+    }
+  },
+  "viewerId": "t2_12345",
+  "conversationIds": [
+    "ncvqZ"
+  ]
+}

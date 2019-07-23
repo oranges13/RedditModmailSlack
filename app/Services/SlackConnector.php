@@ -17,15 +17,11 @@ class SlackConnector
 
 	/**
 	 * SlackConnector constructor.
+	 * @param Client $client
 	 */
-	public function __construct()
+	public function __construct(Client $client)
 	{
-		$this->client = new Client([
-			'headers' => [
-				'User-Agent' => env('USER_AGENT_STRING'),
-				'Content-Type' => 'application/json',
-			]
-		]);
+		$this->client = $client;
 	}
 
 	/**

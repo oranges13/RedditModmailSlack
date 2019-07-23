@@ -1,0 +1,6 @@
+{
+  "access_token": "this_is_a_sample_token_not_a_real_one",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "scope": "example_scope"
+}

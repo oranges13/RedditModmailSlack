@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2019 Elanor Riley.
+ * https://elanor.dev | https://github.com/oranges13
+ */
 
 require_once __DIR__.'/../vendor/autoload.php';
 

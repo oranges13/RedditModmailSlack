@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Services\RedditConnector;
 use App\Services\SlackConnector;
 use Exception;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
 class FetchModmail extends Command
@@ -29,16 +30,24 @@ class FetchModmail extends Command
 
 	/**
 	 * Create a new command instance.
-	 *
-	 * @param RedditConnector $redditConnector
-	 * @param SlackConnector $slackConnector
 	 */
-	public function __construct(RedditConnector $redditConnector, SlackConnector $slackConnector)
+	public function __construct()
 	{
 		parent::__construct();
-
-		$this->reddit = $redditConnector;
-		$this->slack = $slackConnector;
+		$redditClient = new Client([
+			'headers' => [
+				'User-Agent' => env('USER_AGENT_STRING'),
+				'Content-Type' => 'application/x-www-form-urlencoded',
+			]
+		]);
+		$slackClient = new Client([
+			'headers' => [
+				'User-Agent' => env('USER_AGENT_STRING'),
+				'Content-Type' => 'application/json',
+			]
+		]);
+		$this->reddit = new RedditConnector($redditClient);
+		$this->slack = new SlackConnector($slackClient);
 	}
 
 	/**

@@ -23,11 +23,15 @@ Copy `.env.example` to `.env` and fill out the required configuration variables.
 
 ### Quickstart
 
-Send a `GET` request to the root of the application to run the service manually.
+Send a `GET` request to the root of the application to run the service manually or you can use the artisan command
+`artisan fetch:modmail {state}`. 
+
+_State_ is an optional parameter (which defaults to 'new') which can be used to filter
+the request for modmail.
 
 ### Automatic Scheduling
 
-This application includes an artisan command that will run on the schedule you desire.
+This application includes an artisan command that can be run on the schedule you desire.
 
 If you wish to enable this functionality, you only need to uncomment the schedule line in
 `app/Console/Commands/Kernel.php`
