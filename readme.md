@@ -15,7 +15,7 @@ This application is built on the [Lumen Framework](https://lumen.laravel.com/doc
 
 Download the most recent release and expand the archive into your webserver root directory, or clone the `release` branch.
 
-In the application base directory, run `composer install`.
+In the application base directory, run `composer install`. (For production use add the `--no-dev` flag).
 
 Copy `.env.example` to `.env` and fill out the required configuration variables.
 
